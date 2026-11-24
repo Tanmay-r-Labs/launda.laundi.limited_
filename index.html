@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>BOMIS SAMBALPUR • CLASS 7 & 8 SYNDICATE</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Modern Punchy Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .modal-enter {
+      opacity: 0;
+      transform: scale(0.95) translateY(20px);
+    }
+    .modal-enter-active {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-[#0a0a0e] text-zinc-100 font-sans antialiased min-h-screen selection:bg-rose-500 selection:text-white pb-24">
+
+  <!-- ============================================== -->
+  <!-- MAIN FULL-WIDTH WRAPPER                        -->
+  <!-- ============================================== -->
+  <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10">
+
+    <!-- TOP HEADER: BIRLA OPEN MINDS INTERNATIONAL SCHOOL SAMBALPUR -->
+    <header class="mb-8 sm:mb-12">
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-zinc-900 via-[#121218] to-zinc-950 border border-zinc-800/80 p-6 sm:p-10 shadow-2xl">
+        
+        <!-- Glow accents -->
+        <div class="absolute -top-24 -right-24 w-80 h-80 bg-rose-500/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row items-center gap-6 sm:gap-8 text-center md:text-left">
+          
+          <!-- School Squad Avatar / Group Photo -->
+          <div class="relative w-32 h-32 sm:w-40 sm:h-40 rounded-2xl overflow-hidden ring-4 ring-rose-500/30 shadow-2xl flex-shrink-0 bg-zinc-800 group">
+            <img 
+              id="groupPhoto"
+              src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80" 
+              alt="BOMIS Squad" 
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+            />
+            <div class="absolute bottom-2 left-2 bg-black/70 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-bold text-amber-400">
+              🏫 BOMIS
+            </div>
+          </div>
+
+          <!-- School Badge & Hinglish Title -->
+          <div class="flex-1 space-y-2.5">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-400 text-xs font-bold tracking-wide">
+              <span>📍</span>
+              <span>BIRLA OPEN MINDS INTERNATIONAL SCHOOL, SAMBALPUR</span>
+            </div>
+            
+            <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white">
+              Class 7 & 8 Syndicate
+            </h1>
+            
+            <p class="text-zinc-400 text-xs sm:text-base max-w-xl leading-relaxed">
+              3 Seniors (Class 8) + 4 Juniors (Class 7). Tiffin khatam karne me No. 1, Homework submission me No. Last. Classroom me shanti? Sapne me bhi nahi.
+            </p>
+
+            <!-- Joint Instagram Link & School Badges -->
+            <div class="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-3">
+              <a 
+                id="groupLink"
+                href="https://instagram.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 bg-gradient-to-r from-rose-600 via-pink-600 to-amber-600 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-full hover:opacity-95 transition shadow-lg active:scale-95"
+              >
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                <span id="groupHandleText">Follow Joint Account ↗</span>
+              </a>
+
+              <span class="text-xs text-zinc-400 font-medium bg-zinc-800/80 px-3 py-1.5 rounded-full border border-zinc-700/60">
+                Sambalpur, Odisha 🌴
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </header>
+
+    <!-- ============================================== -->
+    <!-- 1. SCHOOL STATS COUNTER (FUNNY SCHOOL METRICS) -->
+    <!-- ============================================== -->
+    <section class="mb-10">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+        
+        <div class="bg-zinc-900/80 border border-zinc-800 rounded-2xl p-3.5">
+          <p class="text-xs text-zinc-400">Tiffins Stolen</p>
+          <p class="text-xl sm:text-2xl font-black text-rose-400 mt-1">840+</p>
+          <span class="text-[10px] text-zinc-500">(Before 3rd Period)</span>
+        </div>
+
+        <div class="bg-zinc-900/80 border border-zinc-800 rounded-2xl p-3.5">
+          <p class="text-xs text-zinc-400">Homework Done</p>
+          <p class="text-xl sm:text-2xl font-black text-red-400 mt-1">0.1%</p>
+          <span class="text-[10px] text-zinc-500">(Subah Assembly me)</span>
+        </div>
+
+        <div class="bg-zinc-900/80 border border-zinc-800 rounded-2xl p-3.5">
+          <p class="text-xs text-zinc-400">PT Period Stolen</p>
+          <p class="text-xl sm:text-2xl font-black text-amber-400 mt-1">99+</p>
+          <span class="text-[10px] text-zinc-500">(Maths Teacher Dwara)</span>
+        </div>
+
+        <div class="bg-zinc-900/80 border border-zinc-800 rounded-2xl p-3.5">
+          <p class="text-xs text-zinc-400">Sambalpur Heat</p>
+          <p class="text-xl sm:text-2xl font-black text-emerald-400 mt-1">100%</p>
+          <span class="text-[10px] text-zinc-500">(Survival Rate)</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 2. ROSTER FILTER (CLASS 7 VS CLASS 8)          -->
+    <!-- ============================================== -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 px-1">
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">The 7 Legends</h2>
+        <p class="text-xs sm:text-sm text-zinc-400 mt-0.5">Photo pe tap karo secrets aur achievements dekhne ke liye</p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="flex items-center gap-1.5 bg-zinc-900/90 border border-zinc-800 p-1.5 rounded-2xl">
+        <button onclick="filterSquad('all')" id="filterAll" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-black transition">
+          All (7)
+        </button>
+        <button onclick="filterSquad('8')" id="filter8" class="px-3 py-1.5 rounded-xl text-xs font-bold text-zinc-400 hover:text-white transition">
+          Class 8 (Seniors 👑)
+        </button>
+        <button onclick="filterSquad('7')" id="filter7" class="px-3 py-1.5 rounded-xl text-xs font-bold text-zinc-400 hover:text-white transition">
+          Class 7 (Juniors ⚡)
+        </button>
+      </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- 3. THE 7 MEMBERS CARDS GRID                    -->
+    <!-- ============================================== -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-14" id="friendsGrid">
+      <!-- Injected by JavaScript -->
+    </div>
+
+    <!-- ============================================== -->
+    <!-- 4. ACHIEVEMENTS & AWARDS SHOWCASE (NEW!)       -->
+    <!-- ============================================== -->
+    <section class="mb-14">
+      <div class="bg-gradient-to-br from-zinc-900 to-[#121218] border border-zinc-800 rounded-3xl p-6 sm:p-8 shadow-xl">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 border-b border-zinc-800 pb-4">
+          <div>
+            <div class="inline-flex items-center gap-1.5 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
+              <span>🏆</span>
+              <span>BOMIS HALL OF FAME</span>
+            </div>
+            <h3 class="text-2xl font-black text-white">Squad Achievements & Trophies</h3>
+            <p class="text-xs text-zinc-400 mt-0.5">Sports, Arts, Academics, aur Group Chat me jeete gaye awards.</p>
+          </div>
+
+          <div class="text-xs text-zinc-400 bg-zinc-800/80 px-3 py-1.5 rounded-xl border border-zinc-700/50 self-start sm:self-auto">
+            Updated for 2026 🏅
+          </div>
+        </div>
+
+        <!-- Achievements Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5" id="achievementsGrid">
+          <!-- Injected by JS -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 5. BOMIS MEMORIES & KALESH VAULT               -->
+    <!-- ============================================== -->
+    <section class="mb-12">
+      <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+        <span>📸</span> BOMIS Core Memories
+      </h3>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+        <div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl space-y-1.5">
+          <p class="font-bold text-amber-400 text-sm">🎪 Annual Day Greenroom</p>
+          <p class="text-zinc-400">Stage pe performance se pehle backstage me makeup aur snacks ka kalesh.</p>
+        </div>
+
+        <div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl space-y-1.5">
+          <p class="font-bold text-rose-400 text-sm">🏃 Sports Day Races</p>
+          <p class="text-zinc-400">House points chahe zero ho, par ground ke bahar se cheering sabse loud humari hoti hai.</p>
+        </div>
+
+        <div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl space-y-1.5">
+          <p class="font-bold text-emerald-400 text-sm">🌶️ Sambalpur Gupchup Party</p>
+          <p class="text-zinc-400">School chhutti ke baad gate ke bahar gupchup kisse zyada khana hai ka challenge.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="text-center text-xs text-zinc-600 pb-10 space-y-1">
+      <p>Birla Open Minds International School Sambalpur • Class 7 & 8</p>
+      <p class="text-[10px] text-zinc-700">Official Squad Bio Link • 2026</p>
+    </footer>
+
+  </div>
+
+  <!-- ============================================== -->
+  <!-- INTERACTIVE POPUP / STORY DOSSIER MODAL        -->
+  <!-- ============================================== -->
+  <div id="storyModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden transition-opacity duration-300">
+    <div id="modalBox" class="relative w-full max-w-lg bg-[#14141a] border border-zinc-700/80 rounded-3xl p-6 sm:p-8 shadow-2xl modal-enter overflow-hidden max-h-[92vh] overflow-y-auto">
+      
+      <!-- Close Button -->
+      <button onclick="closeModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-zinc-800/90 text-white flex items-center justify-center hover:bg-zinc-700 transition z-20">
+        ✕
+      </button>
+
+      <!-- Modal Content Dynamically Injected -->
+      <div id="modalContent" class="space-y-5"></div>
+
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- SCRIPT DATA (BOMIS SAMBALPUR SQUAD)            -->
+  <!-- ============================================== -->
+  <script>
+    // 1. SHARED SQUAD ACCOUNT CONFIG
+    const sharedSquadConfig = {
+      handle: "@bomis_squad7", // Change to actual joint account handle
+      link: "https://instagram.com/"
+    };
+
+    // 2. THE 7 FRIENDS (CLASS 7 & 8 SPECIFIC)
+    const friends = [
+      // CLASS 8 (SENIORS)
+      {
+        id: "pranjal",
+        name: "Pranjal",
+        classGrade: 8,
+        nickname: "Pranju",
+        schoolRole: "The 3rd Period Tiffin Snatcher",
+        handle: "pranjal",
+        photo: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=700&q=80",
+        shortBio: "Recess ka intezar isse nahi hota. 2nd period me hi bench ke niche se kisi na kisi ka lunch box saaf kar deti hai.",
+        fullStory: "Class 8 ki official energy bomb. Serious classes me jab teacher daant rahi hoti hai, tab sabse pehle iski hansi nikalti hai. But sports day ho ya school fest, full support rehti hai.",
+        dialogue: "Bhai tiffin me kya laya hai? Thoda sa de na bas ek bite!",
+        kalesh: "Ek baar class test me pen girne ka bahana karke bagal wale ka aadha paratha kha liya tha.",
+        achievements: ["Inter-House Relay Runner 🏃", "Uncontrollable Laugh Champion 🥇"]
+      },
+      {
+        id: "suryansh",
+        name: "Suryansh",
+        classGrade: 8,
+        nickname: "Surya Bhai",
+        schoolRole: "The Rough Book Artist",
+        handle: "suryansh",
+        photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80",
+        shortBio: "Notebook ke aakhri page pe car ke sketch aur FLAMES khelne wala silent backbencher. Bolta kam hai par roast killer hota hai.",
+        fullStory: "Class 8 ka silent operator. Dikhne me shant lagega, but jab teacher black board pe likh rahi hoti hai, piche se iska ek dialogue aata hai aur poori class hasne lagti hai. Sarcasm ka don.",
+        dialogue: "Arre sir toh syllabus se bahar ka padha rahe hain...",
+        kalesh: "Science notebook check hone ke 2 minute pehle cover chadhaya tha.",
+        achievements: ["Best Backbench Sketch Artist 🎨", "Sambalpur Gupchup Eater 🏆"]
+      },
+      {
+        id: "aarav",
+        name: "Aarav",
+        classGrade: 8,
+        nickname: "Aaru",
+        schoolRole: "The Late Assembly Runner",
+        handle: "aarav",
+        photo: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=700&q=80",
+        shortBio: "National Anthem chal rahi hoti hai tab gate se sprint marke line me ghusne wala hero. Punctuality is zero, but aura is 100.",
+        fullStory: "Class 8 ka self-proclaimed hero. School van ho ya gate, hamesha aakhri second me pohochta hai. Teacher bolti hai 'Late kyu huye?', toh itna convincing bahana banata hai ki teacher bhi confuse ho jaye.",
+        dialogue: "Ma'am chain utar gayi thi cycle ki, sach me!",
+        kalesh: "PT period me shoes ghar bhool gaya tha toh black socks pehen ke inspection se bach gaya.",
+        achievements: ["BOMIS Football Team Striker ⚽", "Late Entry Survival Record 🏅"]
+      },
+
+      // CLASS 7 (JUNIORS)
+      {
+        id: "tanmay",
+        name: "Tanmay",
+        classGrade: 7,
+        nickname: "Tanmay Bhai",
+        schoolRole: "The Medical Room Strategist",
+        handle: "tanmay",
+        photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80",
+        shortBio: "Maths test ke time achanak pet dard, par agle hi period recess me football ground pe sprint maarta hai. Nonchalant king.",
+        fullStory: "Class 7 ka sabse chill banda. Class monitor agar iska naam black board pe likh bhi de, toh ye aaram se so raha hota hai. Teacher se bachne ka jugad iske paas hamesha ready rehta hai.",
+        dialogue: "Chill maar bhai, ma'am homework check karna bhool jayengi.",
+        kalesh: "Medical room me rest karte karte sach me 2 ghante so gaya tha.",
+        achievements: ["Table Tennis Prodigy 🏓", "Unbothered Aura Award 🎖️"]
+      },
+      {
+        id: "tanvi",
+        name: "Tanvi",
+        classGrade: 7,
+        nickname: "Tanvi",
+        schoolRole: "The Canteen & Gossip Head",
+        handle: "tanvi",
+        photo: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=700&q=80",
+        shortBio: "School me kiska kiske sath kalesh hua, sabse pehli breaking news iske paas hoti hai. Canteen me sabse aage khadi milti hai.",
+        fullStory: "Class 7 ki all-rounder. Bag me kitabein kam aur stationary + snacks zyada hote hain. Agar school me koi fest ya event ho, toh Tanvi sabse pehle participate karegi.",
+        dialogue: "Tujhe pata hai Class 8 me aaj kya scene hua?!",
+        kalesh: "Assembly ke line me khade khade itna baat kar rahi thi ki teacher ne monitor bana diya taaki chup rahe.",
+        achievements: ["Dance Competition Winner 💃", "Fastest Canteen Line Reacher 🥇"]
+      },
+      {
+        id: "tejas",
+        name: "Tejas",
+        classGrade: 7,
+        nickname: "Teju",
+        schoolRole: "The Homework Mafia",
+        handle: "tejas",
+        photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=700&q=80",
+        shortBio: "Subah 7:45 AM assembly se pehle jiske notebook ke aage poori class haath jod ke line lagati hai copy karne ke liye.",
+        fullStory: "Class 7 ka handsome padhaku jo dikhta hero hai par kaam dosti wale karta hai. Sabko homework copy karwata hai, par teacher aate hi bolta hai 'Sir maine nahi diya inko!'.",
+        dialogue: "Bhai handwriting change karke likhna, pakde mat jana!",
+        kalesh: "Social Studies ke project me sabka naam likh diya par kaam akele kiya.",
+        achievements: ["Olympiad Top Scorer 🧠", "Photogenic Smile of BOMIS 📸"]
+      },
+      {
+        id: "prakruti",
+        name: "Prakruti",
+        classGrade: 7,
+        nickname: "Praks",
+        schoolRole: "The Substitute Period Monitor",
+        handle: "prakruti",
+        photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=700&q=80",
+        shortBio: "Teacher class se bahar gayi nahi ki black board pe 'TALKING LIST' likhna shuru. Par 5 minute baad khud sabse zyada baatein karegi.",
+        fullStory: "Class 7 ki backbone. Sabko shant karwane ki koshish karti hai taaki principal round pe na aa jaye. But jab masti shuru hoti hai toh Prakruti ka laughter sabse loud hota hai.",
+        dialogue: "Shhh! Principal sir round pe hain, chup raho sab!",
+        kalesh: "Talking list me apne dosto ka naam sabse upar likh diya fir unhone dosti todne ki dhamki di.",
+        achievements: ["Debate / Speech Winner 🎙️", "Best Project Presentation 🎖️"]
+      }
+    ];
+
+    // 3. ACHIEVEMENTS LIST (CAN EASILY ADD MORE)
+    const achievements = [
+      {
+        person: "Aarav (Class 8)",
+        title: "BOMIS Football Inter-School Striker",
+        badge: "⚽ Sports Medal",
+        desc: "School tournament me goal daalne ka record aur sports day sprint me podium finish."
+      },
+      {
+        person: "Tejas (Class 7)",
+        title: "Science & Math Olympiad Merit",
+        badge: "🧠 Academic Excellence",
+        desc: "Class ka resident genius jiske homework pe poori class dependent rehti hai."
+      },
+      {
+        person: "Tanvi (Class 7)",
+        title: "Annual Day Dance Trophy",
+        badge: "💃 Cultural Arts",
+        desc: "Annual function me stage pe best performance ka trophy jeetne wali."
+      },
+      {
+        person: "Pranjal (Class 8)",
+        title: "Fastest 100m Sprint & Tiffin Finisher",
+        badge: "🥇 Athletics & Food",
+        desc: "Inter-House athletic meet me medal aur recess se pehle box finish karne ka award."
+      },
+      {
+        person: "Prakruti (Class 7)",
+        title: "Inter-Class Debate Champion",
+        badge: "🎙️ Public Speaking",
+        desc: "English debate competition me 1st position with unbeatable arguments."
+      },
+      {
+        person: "Suryansh (Class 8)",
+        title: "Best Art & Sketch Portfolio",
+        badge: "🎨 Creative Arts",
+        desc: "School art exhibition me showcase hua drawing, plus rough notebook master."
+      },
+      {
+        person: "Tanmay (Class 7)",
+        title: "Table Tennis Tournament Finalist",
+        badge: "🏓 Racket Sports",
+        desc: "PT period me table tennis table pe sabko harane ka continuous streak."
+      }
+    ];
+
+    // Initialize Header Link
+    document.getElementById('groupLink').href = sharedSquadConfig.link;
+    document.getElementById('groupHandleText').textContent = `Join ${sharedSquadConfig.handle} ↗`;
+
+    // Filter Logic
+    let currentFilter = 'all';
+
+    function filterSquad(type) {
+      currentFilter = type;
+      
+      // Update Buttons
+      document.getElementById('filterAll').className = type === 'all' 
+        ? 'px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-black transition'
+        : 'px-3 py-1.5 rounded-xl text-xs font-bold text-zinc-400 hover:text-white transition';
+      
+      document.getElementById('filter8').className = type === '8'
+        ? 'px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-black transition'
+        : 'px-3 py-1.5 rounded-xl text-xs font-bold text-zinc-400 hover:text-white transition';
+
+      document.getElementById('filter7').className = type === '7'
+        ? 'px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-black transition'
+        : 'px-3 py-1.5 rounded-xl text-xs font-bold text-zinc-400 hover:text-white transition';
+
+      renderFriends();
+    }
+
+    // Render Friends
+    function renderFriends() {
+      const grid = document.getElementById('friendsGrid');
+      grid.innerHTML = '';
+
+      const filtered = friends.filter(f => {
+        if (currentFilter === 'all') return true;
+        return f.classGrade.toString() === currentFilter;
+      });
+
+      filtered.forEach((f) => {
+        const card = document.createElement('div');
+        const isClass8 = f.classGrade === 8;
+        
+        card.className = "bg-[#13131a] border border-zinc-800 hover:border-zinc-700/80 rounded-3xl p-5 sm:p-6 transition-all duration-300 shadow-lg flex flex-col justify-between group";
+
+        card.innerHTML = `
+          <div class="space-y-4">
+            <!-- Top Row: Photo + School Role & Badges -->
+            <div class="flex items-start gap-4 sm:gap-5">
+              
+              <!-- Photo (Tap for Story & Achievements) -->
+              <div 
+                onclick="openModal('${f.id}')"
+                class="relative w-24 h-28 sm:w-28 sm:h-32 rounded-2xl overflow-hidden bg-zinc-800 flex-shrink-0 cursor-pointer ring-2 ${isClass8 ? 'ring-amber-500/50' : 'ring-rose-500/50'} group-hover:scale-105 transition-all duration-300 shadow-md"
+              >
+                <img src="${f.photo}" alt="${f.name}" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end justify-center pb-1.5">
+                  <span class="text-[9px] text-white font-bold bg-black/60 px-1.5 py-0.5 rounded backdrop-blur-sm">
+                    🔍 VIEW FILE
+                  </span>
+                </div>
+              </div>
+
+              <!-- Details -->
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <span class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full ${
+                    isClass8 
+                      ? 'bg-amber-400/10 text-amber-400 border border-amber-400/20' 
+                      : 'bg-rose-400/10 text-rose-400 border border-rose-400/20'
+                  }">
+                    Class ${f.classGrade} ${isClass8 ? '• Senior 👑' : '• Junior ⚡'}
+                  </span>
+                </div>
+
+                <h3 class="text-xl sm:text-2xl font-black text-white mt-1.5 tracking-tight truncate">
+                  ${f.name}
+                </h3>
+                <p class="text-xs text-zinc-400 font-semibold">"${f.nickname}"</p>
+
+                <!-- School Role -->
+                <p class="text-xs font-bold text-amber-300/90 mt-1 line-clamp-1">
+                  🎒 ${f.schoolRole}
+                </p>
+
+                <!-- Dialogue -->
+                <p class="text-[11px] text-rose-300 italic mt-1.5 line-clamp-1">
+                  "${f.dialogue}"
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Short School Bio -->
+            <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed pt-1">
+              ${f.shortBio}
+            </p>
+          </div>
+
+          <!-- Bottom Action Buttons -->
+          <div class="pt-4 mt-3 border-t border-zinc-800/80 flex items-center justify-between gap-2">
+            
+            <button 
+              onclick="openModal('${f.id}')"
+              class="text-xs font-bold text-zinc-300 hover:text-white flex items-center gap-1.5 py-2 px-3 rounded-xl bg-zinc-800/60 hover:bg-zinc-800 transition active:scale-95"
+            >
+              <span>Dossier & Awards 🏆</span>
+            </button>
+
+            <a 
+              href="https://instagram.com/${f.handle}" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="text-xs font-bold text-white bg-gradient-to-r from-rose-500 to-pink-600 hover:opacity-90 px-3.5 py-2 rounded-xl transition active:scale-95 shadow"
+            >
+              @${f.handle} ↗
+            </a>
+
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    // Render Achievements
+    function renderAchievements() {
+      const container = document.getElementById('achievementsGrid');
+      container.innerHTML = '';
+
+      achievements.forEach((ach) => {
+        const item = document.createElement('div');
+        item.className = "bg-zinc-900/60 border border-zinc-800/80 hover:border-zinc-700 rounded-2xl p-4 transition space-y-1.5";
+        
+        item.innerHTML = `
+          <div class="flex items-center justify-between gap-2">
+            <span class="text-[10px] font-bold text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded-full border border-amber-400/20">
+              ${ach.badge}
+            </span>
+            <span class="text-[11px] font-bold text-zinc-400">${ach.person}</span>
+          </div>
+          <h4 class="text-sm font-bold text-white">${ach.title}</h4>
+          <p class="text-xs text-zinc-400 leading-relaxed">${ach.desc}</p>
+        `;
+
+        container.appendChild(item);
+      });
+    }
+
+    // ==============================================
+    // MODAL / STORY POPUP LOGIC
+    // ==============================================
+    let currentModalId = null;
+
+    function openModal(id) {
+      currentModalId = id;
+      const f = friends.find(x => x.id === id);
+      const isClass8 = f.classGrade === 8;
+      const modal = document.getElementById('storyModal');
+      const box = document.getElementById('modalBox');
+      const content = document.getElementById('modalContent');
+
+      // Achievement pills for modal
+      const achHtml = f.achievements.map(a => `
+        <span class="inline-block bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs px-2.5 py-1 rounded-lg font-semibold mr-1.5 mb-1.5">
+          ${a}
+        </span>
+      `).join('');
+
+      content.innerHTML = `
+        <!-- Story Top: Photo + Class Badge -->
+        <div class="flex items-center gap-4 border-b border-zinc-800 pb-4">
+          <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden bg-zinc-800 flex-shrink-0 ring-2 ${isClass8 ? 'ring-amber-500' : 'ring-rose-500'} shadow-xl">
+            <img src="${f.photo}" alt="${f.name}" class="w-full h-full object-cover" />
+          </div>
+          <div>
+            <span class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full ${
+              isClass8 
+                ? 'bg-amber-400/10 text-amber-400 border border-amber-400/20' 
+                : 'bg-rose-400/10 text-rose-400 border border-rose-400/20'
+            }">
+              Class ${f.classGrade} ${isClass8 ? '• Senior 👑' : '• Junior ⚡'}
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-black text-white mt-1">${f.name}</h2>
+            <p class="text-xs text-amber-300 font-bold">🎒 ${f.schoolRole}</p>
+          </div>
+        </div>
+
+        <!-- School Life Story -->
+        <div class="space-y-2">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-zinc-500">BOMIS SCHOOL DOSSIER:</h4>
+          <p class="text-xs sm:text-sm text-zinc-200 leading-relaxed bg-zinc-900/80 p-4 rounded-2xl border border-zinc-800">
+            ${f.fullStory}
+          </p>
+        </div>
+
+        <!-- Achievements Tag -->
+        <div class="space-y-1.5">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400">PERSONAL ACHIEVEMENTS & BADGES:</h4>
+          <div>${achHtml}</div>
+        </div>
+
+        <!-- Signature Dialogue -->
+        <div class="p-3.5 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-xs sm:text-sm text-rose-300">
+          <span class="font-bold text-rose-400">🗣️ Famous Line:</span> "${f.dialogue}"
+        </div>
+
+        <!-- School Kalesh / Memory -->
+        <div class="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-xs sm:text-sm text-amber-200">
+          <span class="font-bold text-amber-400">🤫 Classroom Incident:</span> ${f.kalesh}
+        </div>
+
+        <!-- Bottom Action CTA -->
+        <div class="pt-2 flex items-center justify-between gap-3">
+          <button onclick="cycleFriend(-1)" class="px-3 sm:px-4 py-2.5 rounded-xl bg-zinc-800 text-xs font-bold text-zinc-300 hover:text-white">
+            ← Prev
+          </button>
+
+          <a 
+            href="https://instagram.com/${f.handle}" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="flex-1 py-3 text-center bg-gradient-to-r from-rose-500 to-pink-600 text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg active:scale-95"
+          >
+            Visit @${f.handle} On IG ↗
+          </a>
+
+          <button onclick="cycleFriend(1)" class="px-3 sm:px-4 py-2.5 rounded-xl bg-zinc-800 text-xs font-bold text-zinc-300 hover:text-white">
+            Next →
+          </button>
+        </div>
+      `;
+
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        box.classList.remove('modal-enter');
+        box.classList.add('modal-enter-active');
+      }, 10);
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('storyModal');
+      const box = document.getElementById('modalBox');
+      box.classList.remove('modal-enter-active');
+      box.classList.add('modal-enter');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 200);
+    }
+
+    function cycleFriend(direction) {
+      const currentIndex = friends.findIndex(x => x.id === currentModalId);
+      let nextIndex = currentIndex + direction;
+      if (nextIndex < 0) nextIndex = friends.length - 1;
+      if (nextIndex >= friends.length) nextIndex = 0;
+      openModal(friends[nextIndex].id);
+    }
+
+    // Close on background click
+    document.getElementById('storyModal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+
+    // Initial Renders
+    renderFriends();
+    renderAchievements();
+  </script>
+</body>
+</html>
