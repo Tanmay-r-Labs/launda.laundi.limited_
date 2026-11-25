@@ -1,24 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>BOMIS SAMBALPUR • CLASS 7 & 8 SYNDICATE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>launda.laundi.limited_ • BOMIS Sambalpur</title>
+  <meta name="description" content="7 friends from Birla Open Minds International School, Sambalpur." />
+  <meta property="og:title" content="launda.laundi.limited_ • BOMIS Sambalpur" />
+  <meta property="og:description" content="7 friends • Birla Open Minds International School, Sambalpur." />
+  <meta property="og:type" content="website" />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Google Fonts: Modern Punchy Sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Clean Modern Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
+            display: ['"Bricolage Grotesque"', 'sans-serif'],
             sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            canvas: '#09090d',
+            surface: '#121218',
           }
         }
       }
@@ -26,661 +35,746 @@
   </script>
 
   <style>
-    .modal-enter {
+    body {
+      background-color: #09090d;
+      background-image:
+        radial-gradient(circle at 18% 8%, rgba(244, 63, 94, 0.07), transparent 36%),
+        radial-gradient(circle at 82% 18%, rgba(245, 158, 11, 0.06), transparent 36%);
+    }
+
+    .sheet-hidden {
       opacity: 0;
-      transform: scale(0.95) translateY(20px);
+      transform: translateY(24px) scale(0.98);
     }
-    .modal-enter-active {
+    .sheet-visible {
       opacity: 1;
-      transform: scale(1) translateY(0);
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+      transform: translateY(0) scale(1);
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     }
   </style>
 </head>
-<body class="bg-[#0a0a0e] text-zinc-100 font-sans antialiased min-h-screen selection:bg-rose-500 selection:text-white pb-24">
+<body class="text-zinc-100 font-sans antialiased min-h-screen selection:bg-rose-500 selection:text-white overflow-x-hidden">
 
   <!-- ============================================== -->
-  <!-- MAIN FULL-WIDTH WRAPPER                        -->
+  <!-- TOP NAVIGATION                                 -->
   <!-- ============================================== -->
-  <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10">
+  <nav class="sticky top-0 z-40 backdrop-blur-xl bg-[#09090d]/85 border-b border-white/[0.07]">
+    <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 h-14 sm:h-16 flex items-center justify-between gap-3">
+      <a href="#top" class="flex items-center gap-2.5 min-w-0">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span>
+        <span id="navBrand" class="font-display font-bold text-sm sm:text-base tracking-tight text-white truncate">
+          launda.laundi.limited_
+        </span>
+      </a>
 
-    <!-- TOP HEADER: BIRLA OPEN MINDS INTERNATIONAL SCHOOL SAMBALPUR -->
-    <header class="mb-8 sm:mb-12">
-      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-zinc-900 via-[#121218] to-zinc-950 border border-zinc-800/80 p-6 sm:p-10 shadow-2xl">
-        
-        <!-- Glow accents -->
-        <div class="absolute -top-24 -right-24 w-80 h-80 bg-rose-500/15 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="flex items-center gap-1 sm:gap-2">
+        <a href="#friends" class="px-2.5 sm:px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-zinc-300 hover:text-white hover:bg-white/[0.07] transition">
+          Friends
+        </a>
+        <a href="#memories" class="px-2.5 sm:px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-zinc-300 hover:text-white hover:bg-white/[0.07] transition">
+          Memories
+        </a>
+        <button onclick="openHallOfFame()" class="px-2.5 sm:px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-amber-300 hover:text-amber-200 hover:bg-amber-400/10 transition">
+          Hall of Fame
+        </button>
+        <button onclick="shareSite()" class="ml-1 px-3 py-1.5 rounded-full text-xs font-bold bg-white text-black hover:bg-zinc-200 transition active:scale-95 shrink-0">
+          <span id="shareLabel">Share</span>
+        </button>
+      </div>
+    </div>
+  </nav>
 
-        <div class="relative z-10 flex flex-col md:flex-row items-center gap-6 sm:gap-8 text-center md:text-left">
+  <!-- ============================================== -->
+  <!-- MAIN FULL-WIDTH CONTAINER                      -->
+  <!-- ============================================== -->
+  <main id="top" class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-6 sm:pt-10 pb-20 space-y-14 sm:space-y-20">
+
+    <!-- ============================================ -->
+    <!-- 1. HERO SPOTLIGHT (JOINT IG ACCOUNT)         -->
+    <!-- ============================================ -->
+    <section>
+      <div class="rounded-[2rem] bg-surface border border-white/[0.08] p-5 sm:p-8 lg:p-10 shadow-2xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-center">
           
-          <!-- School Squad Avatar / Group Photo -->
-          <div class="relative w-32 h-32 sm:w-40 sm:h-40 rounded-2xl overflow-hidden ring-4 ring-rose-500/30 shadow-2xl flex-shrink-0 bg-zinc-800 group">
-            <img 
-              id="groupPhoto"
-              src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80" 
-              alt="BOMIS Squad" 
-              class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-            />
-            <div class="absolute bottom-2 left-2 bg-black/70 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-bold text-amber-400">
-              🏫 BOMIS
+          <!-- Group Photo -->
+          <div class="lg:col-span-5">
+            <div class="relative aspect-[4/3] sm:aspect-[16/11] lg:aspect-[5/4] w-full rounded-2xl overflow-hidden bg-zinc-900 border border-white/10 group">
+              <img 
+                id="groupPhoto"
+                src="" 
+                alt="All 7 Friends" 
+                class="hidden w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                onerror="this.style.display='none'; document.getElementById('groupPhotoFallback').classList.replace('hidden','flex');"
+              />
+              <div id="groupPhotoFallback" class="flex w-full h-full flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-zinc-900 via-[#171721] to-zinc-950">
+                <span class="font-display text-4xl sm:text-5xl font-extrabold text-white/90 tracking-tight">7</span>
+                <span class="text-xs sm:text-sm text-zinc-400 mt-2">Group photo coming soon</span>
+              </div>
             </div>
           </div>
 
-          <!-- School Badge & Hinglish Title -->
-          <div class="flex-1 space-y-2.5">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-400 text-xs font-bold tracking-wide">
+          <!-- Squad Info & Main Links -->
+          <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-zinc-300 text-xs sm:text-sm font-medium">
               <span>📍</span>
-              <span>BIRLA OPEN MINDS INTERNATIONAL SCHOOL, SAMBALPUR</span>
+              <span>Birla Open Minds International School, Sambalpur</span>
             </div>
-            
-            <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white">
-              Class 7 & 8 Syndicate
-            </h1>
-            
-            <p class="text-zinc-400 text-xs sm:text-base max-w-xl leading-relaxed">
-              3 Seniors (Class 8) + 4 Juniors (Class 7). Tiffin khatam karne me No. 1, Homework submission me No. Last. Classroom me shanti? Sapne me bhi nahi.
-            </p>
 
-            <!-- Joint Instagram Link & School Badges -->
-            <div class="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-3">
+            <div class="space-y-2.5">
+              <h1 id="heroTitle" class="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.08] break-words">
+                launda.laundi.limited_
+              </h1>
+              <p id="heroBio" class="text-sm sm:text-lg text-zinc-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                7 friends • Birla Open Minds International School, Sambalpur.
+              </p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
               <a 
                 id="groupLink"
-                href="https://instagram.com/" 
+                href="https://instagram.com/launda.laundi.limited_" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 bg-gradient-to-r from-rose-600 via-pink-600 to-amber-600 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-full hover:opacity-95 transition shadow-lg active:scale-95"
+                class="inline-flex items-center gap-2.5 bg-gradient-to-r from-rose-500 via-pink-500 to-amber-500 text-white font-bold text-sm sm:text-base px-6 py-3.5 rounded-full hover:brightness-110 transition shadow-lg shadow-rose-500/20 active:scale-95"
               >
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                <span id="groupHandleText">Follow Joint Account ↗</span>
+                <svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                <span id="groupHandleText">Follow @launda.laundi.limited_ ↗</span>
               </a>
 
-              <span class="text-xs text-zinc-400 font-medium bg-zinc-800/80 px-3 py-1.5 rounded-full border border-zinc-700/60">
-                Sambalpur, Odisha 🌴
-              </span>
+              <button 
+                onclick="openHallOfFame()"
+                class="inline-flex items-center gap-2 bg-amber-400/15 hover:bg-amber-400/25 border border-amber-400/30 text-amber-300 font-bold text-sm sm:text-base px-5 py-3.5 rounded-full transition active:scale-95"
+              >
+                <span>🏆</span>
+                <span>Open Hall of Fame</span>
+              </button>
             </div>
-
           </div>
 
         </div>
-
-      </div>
-    </header>
-
-    <!-- ============================================== -->
-    <!-- 1. SCHOOL STATS COUNTER (FUNNY SCHOOL METRICS) -->
-    <!-- ============================================== -->
-    <section class="mb-10">
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-        
-        <div class="bg-zinc-900/80 border border-zinc-800 rounded-2xl p-3.5">
-          <p class="text-xs text-zinc-400">Tiffins Stolen</p>
-          <p class="text-xl sm:text-2xl font-black text-rose-400 mt-1">840+</p>
-          <span class="text-[10px] text-zinc-500">(Before 3rd Period)</span>
-        </div>
-
-        <div class="bg-zinc-900/80 border border-zinc-800 rounded-2xl p-3.5">
-          <p class="text-xs text-zinc-400">Homework Done</p>
-          <p class="text-xl sm:text-2xl font-black text-red-400 mt-1">0.1%</p>
-          <span class="text-[10px] text-zinc-500">(Subah Assembly me)</span>
-        </div>
-
-        <div class="bg-zinc-900/80 border border-zinc-800 rounded-2xl p-3.5">
-          <p class="text-xs text-zinc-400">PT Period Stolen</p>
-          <p class="text-xl sm:text-2xl font-black text-amber-400 mt-1">99+</p>
-          <span class="text-[10px] text-zinc-500">(Maths Teacher Dwara)</span>
-        </div>
-
-        <div class="bg-zinc-900/80 border border-zinc-800 rounded-2xl p-3.5">
-          <p class="text-xs text-zinc-400">Sambalpur Heat</p>
-          <p class="text-xl sm:text-2xl font-black text-emerald-400 mt-1">100%</p>
-          <span class="text-[10px] text-zinc-500">(Survival Rate)</span>
-        </div>
-
       </div>
     </section>
 
-    <!-- ============================================== -->
-    <!-- 2. ROSTER FILTER (CLASS 7 VS CLASS 8)          -->
-    <!-- ============================================== -->
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 px-1">
+    <!-- ============================================ -->
+    <!-- 2. THE 7 FRIENDS (UNIFIED ORDER)             -->
+    <!-- ============================================ -->
+    <section id="friends" class="scroll-mt-20 space-y-6">
       <div>
-        <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">The 7 Legends</h2>
-        <p class="text-xs sm:text-sm text-zinc-400 mt-0.5">Photo pe tap karo secrets aur achievements dekhne ke liye</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          The 7 of Us
+        </h2>
+        <p class="text-sm text-zinc-400 mt-1">
+          Tap on anyone to read more and visit their Instagram.
+        </p>
       </div>
 
-      <!-- Filter Buttons -->
-      <div class="flex items-center gap-1.5 bg-zinc-900/90 border border-zinc-800 p-1.5 rounded-2xl">
-        <button onclick="filterSquad('all')" id="filterAll" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-black transition">
-          All (7)
-        </button>
-        <button onclick="filterSquad('8')" id="filter8" class="px-3 py-1.5 rounded-xl text-xs font-bold text-zinc-400 hover:text-white transition">
-          Class 8 (Seniors 👑)
-        </button>
-        <button onclick="filterSquad('7')" id="filter7" class="px-3 py-1.5 rounded-xl text-xs font-bold text-zinc-400 hover:text-white transition">
-          Class 7 (Juniors ⚡)
-        </button>
+      <!-- Flex-wrap centered grid: 4 on row 1, 3 centered on row 2 on desktop -->
+      <div id="friendsGrid" class="flex flex-wrap justify-center gap-5"></div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 3. MEMORIES (GARBA NIGHT & VAN GUPCHUP)      -->
+    <!-- ============================================ -->
+    <section id="memories" class="scroll-mt-20 space-y-6">
+      <div>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Memories
+        </h2>
+        <p class="text-sm text-zinc-400 mt-1">
+          Garba Night & Van Gupchup. Tap to view photos and videos.
+        </p>
       </div>
-    </div>
 
-    <!-- ============================================== -->
-    <!-- 3. THE 7 MEMBERS CARDS GRID                    -->
-    <!-- ============================================== -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-14" id="friendsGrid">
-      <!-- Injected by JavaScript -->
-    </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" id="memoriesGrid"></div>
+    </section>
 
-    <!-- ============================================== -->
-    <!-- 4. ACHIEVEMENTS & AWARDS SHOWCASE (NEW!)       -->
-    <!-- ============================================== -->
-    <section class="mb-14">
-      <div class="bg-gradient-to-br from-zinc-900 to-[#121218] border border-zinc-800 rounded-3xl p-6 sm:p-8 shadow-xl">
-        
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 border-b border-zinc-800 pb-4">
-          <div>
-            <div class="inline-flex items-center gap-1.5 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
-              <span>🏆</span>
-              <span>BOMIS HALL OF FAME</span>
-            </div>
-            <h3 class="text-2xl font-black text-white">Squad Achievements & Trophies</h3>
-            <p class="text-xs text-zinc-400 mt-0.5">Sports, Arts, Academics, aur Group Chat me jeete gaye awards.</p>
-          </div>
-
-          <div class="text-xs text-zinc-400 bg-zinc-800/80 px-3 py-1.5 rounded-xl border border-zinc-700/50 self-start sm:self-auto">
-            Updated for 2026 🏅
-          </div>
+    <!-- ============================================ -->
+    <!-- 4. HALL OF FAME LAUNCHER                     -->
+    <!-- ============================================ -->
+    <section id="hall-of-fame" class="scroll-mt-20">
+      <div class="rounded-[2rem] bg-surface border border-white/[0.08] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+        <div>
+          <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            🏆 Hall of Fame
+          </h2>
+          <p class="text-xs sm:text-sm text-zinc-400 mt-1">
+            Achievements, photos, and videos from the group.
+          </p>
         </div>
 
-        <!-- Achievements Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5" id="achievementsGrid">
-          <!-- Injected by JS -->
-        </div>
-
+        <button 
+          onclick="openHallOfFame()"
+          class="inline-flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-300 text-black font-bold text-sm px-6 py-3.5 rounded-full transition active:scale-95 shrink-0"
+        >
+          <span>Open Hall of Fame</span>
+          <span>↗</span>
+        </button>
       </div>
     </section>
 
-    <!-- ============================================== -->
-    <!-- 5. BOMIS MEMORIES & KALESH VAULT               -->
-    <!-- ============================================== -->
-    <section class="mb-12">
-      <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-        <span>📸</span> BOMIS Core Memories
-      </h3>
-
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-        <div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl space-y-1.5">
-          <p class="font-bold text-amber-400 text-sm">🎪 Annual Day Greenroom</p>
-          <p class="text-zinc-400">Stage pe performance se pehle backstage me makeup aur snacks ka kalesh.</p>
-        </div>
-
-        <div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl space-y-1.5">
-          <p class="font-bold text-rose-400 text-sm">🏃 Sports Day Races</p>
-          <p class="text-zinc-400">House points chahe zero ho, par ground ke bahar se cheering sabse loud humari hoti hai.</p>
-        </div>
-
-        <div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl space-y-1.5">
-          <p class="font-bold text-emerald-400 text-sm">🌶️ Sambalpur Gupchup Party</p>
-          <p class="text-zinc-400">School chhutti ke baad gate ke bahar gupchup kisse zyada khana hai ka challenge.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="text-center text-xs text-zinc-600 pb-10 space-y-1">
-      <p>Birla Open Minds International School Sambalpur • Class 7 & 8</p>
-      <p class="text-[10px] text-zinc-700">Official Squad Bio Link • 2026</p>
+    <!-- ============================================ -->
+    <!-- FOOTER                                       -->
+    <!-- ============================================ -->
+    <footer class="pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-zinc-500">
+      <p>Birla Open Minds International School, Sambalpur</p>
+      <p id="footerBrand" class="font-semibold text-zinc-400">@launda.laundi.limited_</p>
     </footer>
 
-  </div>
+  </main>
 
   <!-- ============================================== -->
-  <!-- INTERACTIVE POPUP / STORY DOSSIER MODAL        -->
+  <!-- MODAL 1: FRIEND DETAILS (Detailed Self + IG)   -->
   <!-- ============================================== -->
-  <div id="storyModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden transition-opacity duration-300">
-    <div id="modalBox" class="relative w-full max-w-lg bg-[#14141a] border border-zinc-700/80 rounded-3xl p-6 sm:p-8 shadow-2xl modal-enter overflow-hidden max-h-[92vh] overflow-y-auto">
-      
-      <!-- Close Button -->
-      <button onclick="closeModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-zinc-800/90 text-white flex items-center justify-center hover:bg-zinc-700 transition z-20">
+  <div id="storyModal" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-black/80 backdrop-blur-md p-0 sm:p-4">
+    <div id="storyBox" class="relative w-full sm:max-w-xl bg-[#13131b] border-t sm:border border-white/10 rounded-t-[2rem] sm:rounded-[2rem] p-6 sm:p-8 shadow-2xl sheet-hidden max-h-[90vh] overflow-y-auto">
+      <div class="w-10 h-1 bg-zinc-700 rounded-full mx-auto mb-4 sm:hidden"></div>
+      <button onclick="closeStoryModal()" aria-label="Close" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition">
         ✕
       </button>
-
-      <!-- Modal Content Dynamically Injected -->
-      <div id="modalContent" class="space-y-5"></div>
-
+      <div id="storyContent" class="space-y-5"></div>
     </div>
   </div>
 
   <!-- ============================================== -->
-  <!-- SCRIPT DATA (BOMIS SAMBALPUR SQUAD)            -->
+  <!-- MODAL 2: MEMORY VIEWER (Photos & Videos)       -->
+  <!-- ============================================== -->
+  <div id="memoryModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-lg p-4">
+    <div id="memoryBox" class="relative w-full max-w-4xl bg-[#121218] border border-white/10 rounded-3xl p-4 sm:p-6 shadow-2xl sheet-hidden max-h-[92vh] overflow-y-auto">
+      <button onclick="closeMemoryModal()" aria-label="Close" class="sticky top-0 float-right z-20 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition">
+        ✕
+      </button>
+      <div id="memoryContent" class="space-y-4"></div>
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- MODAL 3: HALL OF FAME (Photos, Videos, Close)  -->
+  <!-- ============================================== -->
+  <div id="hofModal" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-black/85 backdrop-blur-lg p-0 sm:p-4">
+    <div id="hofBox" class="relative w-full sm:max-w-4xl bg-[#121218] border-t sm:border border-white/10 rounded-t-[2rem] sm:rounded-[2rem] p-6 sm:p-8 shadow-2xl sheet-hidden max-h-[90vh] overflow-y-auto">
+      <div class="w-10 h-1 bg-zinc-700 rounded-full mx-auto mb-4 sm:hidden"></div>
+
+      <div class="flex items-start justify-between gap-4 border-b border-white/[0.08] pb-4 mb-6">
+        <div>
+          <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-white">🏆 Hall of Fame</h2>
+          <p class="text-xs sm:text-sm text-zinc-400 mt-1">Squad achievements, photos, and videos.</p>
+        </div>
+        <button onclick="closeHallOfFame()" class="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold transition shrink-0">
+          Close ✕
+        </button>
+      </div>
+
+      <div id="hofContent" class="space-y-5"></div>
+
+      <div class="mt-6 pt-4 border-t border-white/[0.08] flex justify-end">
+        <button onclick="closeHallOfFame()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-white text-black font-bold text-sm hover:bg-zinc-200 transition">
+          Close Hall of Fame
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- DATA & APP LOGIC                               -->
   <!-- ============================================== -->
   <script>
-    // 1. SHARED SQUAD ACCOUNT CONFIG
-    const sharedSquadConfig = {
-      handle: "@bomis_squad7", // Change to actual joint account handle
-      link: "https://instagram.com/"
+    // =========================================================================
+    // 1. SQUAD CONFIG
+    // =========================================================================
+    const SQUAD_CONFIG = {
+      name: "launda.laundi.limited_",
+      handle: "launda.laundi.limited_",
+      bio: "7 friends • Birla Open Minds International School, Sambalpur.",
+      photo: "" // Add path like "assets/group.jpg" when ready
     };
 
-    // 2. THE 7 FRIENDS (CLASS 7 & 8 SPECIFIC)
-    const friends = [
-      // CLASS 8 (SENIORS)
-      {
-        id: "pranjal",
-        name: "Pranjal",
-        classGrade: 8,
-        nickname: "Pranju",
-        schoolRole: "The 3rd Period Tiffin Snatcher",
-        handle: "pranjal",
-        photo: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=700&q=80",
-        shortBio: "Recess ka intezar isse nahi hota. 2nd period me hi bench ke niche se kisi na kisi ka lunch box saaf kar deti hai.",
-        fullStory: "Class 8 ki official energy bomb. Serious classes me jab teacher daant rahi hoti hai, tab sabse pehle iski hansi nikalti hai. But sports day ho ya school fest, full support rehti hai.",
-        dialogue: "Bhai tiffin me kya laya hai? Thoda sa de na bas ek bite!",
-        kalesh: "Ek baar class test me pen girne ka bahana karke bagal wale ka aadha paratha kha liya tha.",
-        achievements: ["Inter-House Relay Runner 🏃", "Uncontrollable Laugh Champion 🥇"]
-      },
-      {
-        id: "suryansh",
-        name: "Suryansh",
-        classGrade: 8,
-        nickname: "Surya Bhai",
-        schoolRole: "The Rough Book Artist",
-        handle: "suryansh",
-        photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80",
-        shortBio: "Notebook ke aakhri page pe car ke sketch aur FLAMES khelne wala silent backbencher. Bolta kam hai par roast killer hota hai.",
-        fullStory: "Class 8 ka silent operator. Dikhne me shant lagega, but jab teacher black board pe likh rahi hoti hai, piche se iska ek dialogue aata hai aur poori class hasne lagti hai. Sarcasm ka don.",
-        dialogue: "Arre sir toh syllabus se bahar ka padha rahe hain...",
-        kalesh: "Science notebook check hone ke 2 minute pehle cover chadhaya tha.",
-        achievements: ["Best Backbench Sketch Artist 🎨", "Sambalpur Gupchup Eater 🏆"]
-      },
-      {
-        id: "aarav",
-        name: "Aarav",
-        classGrade: 8,
-        nickname: "Aaru",
-        schoolRole: "The Late Assembly Runner",
-        handle: "aarav",
-        photo: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=700&q=80",
-        shortBio: "National Anthem chal rahi hoti hai tab gate se sprint marke line me ghusne wala hero. Punctuality is zero, but aura is 100.",
-        fullStory: "Class 8 ka self-proclaimed hero. School van ho ya gate, hamesha aakhri second me pohochta hai. Teacher bolti hai 'Late kyu huye?', toh itna convincing bahana banata hai ki teacher bhi confuse ho jaye.",
-        dialogue: "Ma'am chain utar gayi thi cycle ki, sach me!",
-        kalesh: "PT period me shoes ghar bhool gaya tha toh black socks pehen ke inspection se bach gaya.",
-        achievements: ["BOMIS Football Team Striker ⚽", "Late Entry Survival Record 🏅"]
-      },
-
-      // CLASS 7 (JUNIORS)
+    // =========================================================================
+    // 2. THE 7 FRIENDS (Exact Order: Tanmay, Tanvi, Tejas, Pranjal, Suryansh, Prakruti, Aarav)
+    // =========================================================================
+    const FRIENDS = [
       {
         id: "tanmay",
         name: "Tanmay",
-        classGrade: 7,
-        nickname: "Tanmay Bhai",
-        schoolRole: "The Medical Room Strategist",
+        nickname: "",
         handle: "tanmay",
-        photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80",
-        shortBio: "Maths test ke time achanak pet dard, par agle hi period recess me football ground pe sprint maarta hai. Nonchalant king.",
-        fullStory: "Class 7 ka sabse chill banda. Class monitor agar iska naam black board pe likh bhi de, toh ye aaram se so raha hota hai. Teacher se bachne ka jugad iske paas hamesha ready rehta hai.",
-        dialogue: "Chill maar bhai, ma'am homework check karna bhool jayengi.",
-        kalesh: "Medical room me rest karte karte sach me 2 ghante so gaya tha.",
-        achievements: ["Table Tennis Prodigy 🏓", "Unbothered Aura Award 🎖️"]
+        photo: "", // e.g. "assets/photos/tanmay.jpg"
+        fallbackBg: "bg-gradient-to-br from-indigo-950/60 via-zinc-900 to-zinc-950",
+        about: "" // Detailed bio coming soon
       },
       {
         id: "tanvi",
         name: "Tanvi",
-        classGrade: 7,
-        nickname: "Tanvi",
-        schoolRole: "The Canteen & Gossip Head",
+        nickname: "",
         handle: "tanvi",
-        photo: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=700&q=80",
-        shortBio: "School me kiska kiske sath kalesh hua, sabse pehli breaking news iske paas hoti hai. Canteen me sabse aage khadi milti hai.",
-        fullStory: "Class 7 ki all-rounder. Bag me kitabein kam aur stationary + snacks zyada hote hain. Agar school me koi fest ya event ho, toh Tanvi sabse pehle participate karegi.",
-        dialogue: "Tujhe pata hai Class 8 me aaj kya scene hua?!",
-        kalesh: "Assembly ke line me khade khade itna baat kar rahi thi ki teacher ne monitor bana diya taaki chup rahe.",
-        achievements: ["Dance Competition Winner 💃", "Fastest Canteen Line Reacher 🥇"]
+        photo: "", // e.g. "assets/photos/tanvi.jpg"
+        fallbackBg: "bg-gradient-to-br from-rose-950/60 via-zinc-900 to-zinc-950",
+        about: ""
       },
       {
         id: "tejas",
         name: "Tejas",
-        classGrade: 7,
-        nickname: "Teju",
-        schoolRole: "The Homework Mafia",
+        nickname: "",
         handle: "tejas",
-        photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=700&q=80",
-        shortBio: "Subah 7:45 AM assembly se pehle jiske notebook ke aage poori class haath jod ke line lagati hai copy karne ke liye.",
-        fullStory: "Class 7 ka handsome padhaku jo dikhta hero hai par kaam dosti wale karta hai. Sabko homework copy karwata hai, par teacher aate hi bolta hai 'Sir maine nahi diya inko!'.",
-        dialogue: "Bhai handwriting change karke likhna, pakde mat jana!",
-        kalesh: "Social Studies ke project me sabka naam likh diya par kaam akele kiya.",
-        achievements: ["Olympiad Top Scorer 🧠", "Photogenic Smile of BOMIS 📸"]
+        photo: "", // e.g. "assets/photos/tejas.jpg"
+        fallbackBg: "bg-gradient-to-br from-violet-950/60 via-zinc-900 to-zinc-950",
+        about: ""
+      },
+      {
+        id: "pranjal",
+        name: "Pranjal",
+        nickname: "",
+        handle: "pranjal",
+        photo: "", // e.g. "assets/photos/pranjal.jpg"
+        fallbackBg: "bg-gradient-to-br from-amber-950/60 via-zinc-900 to-zinc-950",
+        about: ""
+      },
+      {
+        id: "suryansh",
+        name: "Suryansh",
+        nickname: "",
+        handle: "suryansh",
+        photo: "", // e.g. "assets/photos/suryansh.jpg"
+        fallbackBg: "bg-gradient-to-br from-emerald-950/60 via-zinc-900 to-zinc-950",
+        about: ""
       },
       {
         id: "prakruti",
         name: "Prakruti",
-        classGrade: 7,
-        nickname: "Praks",
-        schoolRole: "The Substitute Period Monitor",
+        nickname: "",
         handle: "prakruti",
-        photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=700&q=80",
-        shortBio: "Teacher class se bahar gayi nahi ki black board pe 'TALKING LIST' likhna shuru. Par 5 minute baad khud sabse zyada baatein karegi.",
-        fullStory: "Class 7 ki backbone. Sabko shant karwane ki koshish karti hai taaki principal round pe na aa jaye. But jab masti shuru hoti hai toh Prakruti ka laughter sabse loud hota hai.",
-        dialogue: "Shhh! Principal sir round pe hain, chup raho sab!",
-        kalesh: "Talking list me apne dosto ka naam sabse upar likh diya fir unhone dosti todne ki dhamki di.",
-        achievements: ["Debate / Speech Winner 🎙️", "Best Project Presentation 🎖️"]
+        photo: "", // e.g. "assets/photos/prakruti.jpg"
+        fallbackBg: "bg-gradient-to-br from-pink-950/60 via-zinc-900 to-zinc-950",
+        about: ""
+      },
+      {
+        id: "aarav",
+        name: "Aarav",
+        nickname: "",
+        handle: "aarav",
+        photo: "", // e.g. "assets/photos/aarav.jpg"
+        fallbackBg: "bg-gradient-to-br from-sky-950/60 via-zinc-900 to-zinc-950",
+        about: ""
       }
     ];
 
-    // 3. ACHIEVEMENTS LIST (CAN EASILY ADD MORE)
-    const achievements = [
+    // =========================================================================
+    // 3. MEMORIES (Garba Night & Van Gupchup — Photos & Videos)
+    // =========================================================================
+    const MEMORIES = [
       {
-        person: "Aarav (Class 8)",
-        title: "BOMIS Football Inter-School Striker",
-        badge: "⚽ Sports Medal",
-        desc: "School tournament me goal daalne ka record aur sports day sprint me podium finish."
+        id: "garba",
+        badge: "💃 GARBA NIGHT",
+        title: "Garba Night",
+        description: "Garba night photos and clips.",
+        accent: "rose",
+        media: [
+          // Add photos/videos here, e.g.:
+          // { type: "image", src: "assets/memories/garba-1.jpg", label: "Garba Night" }
+        ]
       },
       {
-        person: "Tejas (Class 7)",
-        title: "Science & Math Olympiad Merit",
-        badge: "🧠 Academic Excellence",
-        desc: "Class ka resident genius jiske homework pe poori class dependent rehti hai."
-      },
-      {
-        person: "Tanvi (Class 7)",
-        title: "Annual Day Dance Trophy",
-        badge: "💃 Cultural Arts",
-        desc: "Annual function me stage pe best performance ka trophy jeetne wali."
-      },
-      {
-        person: "Pranjal (Class 8)",
-        title: "Fastest 100m Sprint & Tiffin Finisher",
-        badge: "🥇 Athletics & Food",
-        desc: "Inter-House athletic meet me medal aur recess se pehle box finish karne ka award."
-      },
-      {
-        person: "Prakruti (Class 7)",
-        title: "Inter-Class Debate Champion",
-        badge: "🎙️ Public Speaking",
-        desc: "English debate competition me 1st position with unbeatable arguments."
-      },
-      {
-        person: "Suryansh (Class 8)",
-        title: "Best Art & Sketch Portfolio",
-        badge: "🎨 Creative Arts",
-        desc: "School art exhibition me showcase hua drawing, plus rough notebook master."
-      },
-      {
-        person: "Tanmay (Class 7)",
-        title: "Table Tennis Tournament Finalist",
-        badge: "🏓 Racket Sports",
-        desc: "PT period me table tennis table pe sabko harane ka continuous streak."
+        id: "van",
+        badge: "🚐 SCHOOL VAN",
+        title: "Van Gupchup",
+        description: "Gupchup session in the school van.",
+        accent: "amber",
+        media: [
+          // Add photos/videos here, e.g.:
+          // { type: "video", src: "assets/memories/van-gupchup.mp4", label: "Van Gupchup" }
+        ]
       }
     ];
 
-    // Initialize Header Link
-    document.getElementById('groupLink').href = sharedSquadConfig.link;
-    document.getElementById('groupHandleText').textContent = `Join ${sharedSquadConfig.handle} ↗`;
+    // =========================================================================
+    // 4. HALL OF FAME (Achievements with Photos & Videos)
+    // =========================================================================
+    const HALL_OF_FAME = [
+      // Add achievements here with optional photo or video:
+      // {
+      //   person: "Tanmay",
+      //   title: "Achievement Title",
+      //   description: "What happened...",
+      //   mediaType: "image", // "image" or "video" (optional)
+      //   mediaSrc: "assets/hall-of-fame/example.jpg" // optional
+      // }
+    ];
 
-    // Filter Logic
-    let currentFilter = 'all';
-
-    function filterSquad(type) {
-      currentFilter = type;
-      
-      // Update Buttons
-      document.getElementById('filterAll').className = type === 'all' 
-        ? 'px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-black transition'
-        : 'px-3 py-1.5 rounded-xl text-xs font-bold text-zinc-400 hover:text-white transition';
-      
-      document.getElementById('filter8').className = type === '8'
-        ? 'px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-black transition'
-        : 'px-3 py-1.5 rounded-xl text-xs font-bold text-zinc-400 hover:text-white transition';
-
-      document.getElementById('filter7').className = type === '7'
-        ? 'px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-black transition'
-        : 'px-3 py-1.5 rounded-xl text-xs font-bold text-zinc-400 hover:text-white transition';
-
-      renderFriends();
+    // =========================================================================
+    // UTILITIES
+    // =========================================================================
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
     }
 
-    // Render Friends
+    // Apply Squad Config
+    document.getElementById("navBrand").textContent = SQUAD_CONFIG.name;
+    document.getElementById("heroTitle").textContent = SQUAD_CONFIG.name;
+    document.getElementById("heroBio").textContent = SQUAD_CONFIG.bio;
+    if (SQUAD_CONFIG.photo) {
+      const gp = document.getElementById("groupPhoto");
+      gp.src = SQUAD_CONFIG.photo;
+      gp.classList.remove("hidden");
+      document.getElementById("groupPhotoFallback").classList.replace("flex", "hidden");
+    }
+    document.getElementById("groupLink").href = `https://instagram.com/${SQUAD_CONFIG.handle}`;
+    document.getElementById("groupHandleText").textContent = `Follow @${SQUAD_CONFIG.handle} ↗`;
+    document.getElementById("footerBrand").textContent = `@${SQUAD_CONFIG.handle}`;
+
+    // =========================================================================
+    // RENDER FRIENDS
+    // =========================================================================
     function renderFriends() {
-      const grid = document.getElementById('friendsGrid');
-      grid.innerHTML = '';
-
-      const filtered = friends.filter(f => {
-        if (currentFilter === 'all') return true;
-        return f.classGrade.toString() === currentFilter;
-      });
-
-      filtered.forEach((f) => {
-        const card = document.createElement('div');
-        const isClass8 = f.classGrade === 8;
-        
-        card.className = "bg-[#13131a] border border-zinc-800 hover:border-zinc-700/80 rounded-3xl p-5 sm:p-6 transition-all duration-300 shadow-lg flex flex-col justify-between group";
-
-        card.innerHTML = `
-          <div class="space-y-4">
-            <!-- Top Row: Photo + School Role & Badges -->
-            <div class="flex items-start gap-4 sm:gap-5">
-              
-              <!-- Photo (Tap for Story & Achievements) -->
+      const grid = document.getElementById("friendsGrid");
+      grid.innerHTML = FRIENDS.map((f) => {
+        const initials = escapeHtml(f.name.slice(0, 2).toUpperCase());
+        return `
+          <article class="w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(25%-0.95rem)] bg-surface border border-white/[0.08] hover:border-white/20 rounded-3xl p-4 sm:p-5 flex flex-col justify-between transition duration-300 shadow-lg group">
+            <div>
               <div 
-                onclick="openModal('${f.id}')"
-                class="relative w-24 h-28 sm:w-28 sm:h-32 rounded-2xl overflow-hidden bg-zinc-800 flex-shrink-0 cursor-pointer ring-2 ${isClass8 ? 'ring-amber-500/50' : 'ring-rose-500/50'} group-hover:scale-105 transition-all duration-300 shadow-md"
+                onclick="openStoryModal('${f.id}')"
+                class="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-zinc-900 border border-white/[0.06] cursor-pointer mb-4"
               >
-                <img src="${f.photo}" alt="${f.name}" class="w-full h-full object-cover" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end justify-center pb-1.5">
-                  <span class="text-[9px] text-white font-bold bg-black/60 px-1.5 py-0.5 rounded backdrop-blur-sm">
-                    🔍 VIEW FILE
-                  </span>
+                ${f.photo ? `
+                  <img 
+                    src="${f.photo}" 
+                    alt="${escapeHtml(f.name)}" 
+                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                    onerror="this.style.display='none'; this.nextElementSibling.classList.replace('hidden','flex');"
+                  />
+                ` : ""}
+                <div class="${f.photo ? 'hidden' : 'flex'} w-full h-full flex-col items-center justify-center p-4 text-center ${f.fallbackBg}">
+                  <span class="font-display text-5xl font-extrabold text-white/90 tracking-tighter">${initials}</span>
+                  <span class="mt-2 text-xs text-zinc-400">Photo coming soon</span>
                 </div>
               </div>
 
-              <!-- Details -->
-              <div class="flex-1 min-w-0">
-                <div class="flex items-center gap-1.5 flex-wrap">
-                  <span class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full ${
-                    isClass8 
-                      ? 'bg-amber-400/10 text-amber-400 border border-amber-400/20' 
-                      : 'bg-rose-400/10 text-rose-400 border border-rose-400/20'
-                  }">
-                    Class ${f.classGrade} ${isClass8 ? '• Senior 👑' : '• Junior ⚡'}
-                  </span>
-                </div>
-
-                <h3 class="text-xl sm:text-2xl font-black text-white mt-1.5 tracking-tight truncate">
-                  ${f.name}
+              <div class="flex items-baseline justify-between gap-2">
+                <h3 class="font-display text-xl sm:text-2xl font-extrabold text-white tracking-tight truncate">
+                  ${escapeHtml(f.name)}
                 </h3>
-                <p class="text-xs text-zinc-400 font-semibold">"${f.nickname}"</p>
-
-                <!-- School Role -->
-                <p class="text-xs font-bold text-amber-300/90 mt-1 line-clamp-1">
-                  🎒 ${f.schoolRole}
-                </p>
-
-                <!-- Dialogue -->
-                <p class="text-[11px] text-rose-300 italic mt-1.5 line-clamp-1">
-                  "${f.dialogue}"
-                </p>
+                ${f.nickname ? `<span class="text-xs text-zinc-400 font-medium shrink-0">${escapeHtml(f.nickname)}</span>` : ""}
               </div>
 
+              ${f.about ? `
+                <p class="text-xs sm:text-sm text-zinc-400 mt-2 leading-relaxed line-clamp-2">
+                  ${escapeHtml(f.about)}
+                </p>
+              ` : ""}
             </div>
 
-            <!-- Short School Bio -->
-            <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed pt-1">
-              ${f.shortBio}
+            <div class="mt-4 pt-3.5 border-t border-white/[0.06] flex items-center justify-between gap-2">
+              <button 
+                onclick="openStoryModal('${f.id}')"
+                class="text-xs font-bold text-zinc-300 hover:text-white bg-white/[0.05] hover:bg-white/[0.1] px-3 py-2 rounded-xl transition active:scale-95"
+              >
+                View details
+              </button>
+              <a 
+                href="https://instagram.com/${encodeURIComponent(f.handle)}" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="text-xs font-bold text-white bg-gradient-to-r from-rose-500 to-pink-600 hover:brightness-110 px-3.5 py-2 rounded-xl transition active:scale-95 truncate max-w-[140px]"
+              >
+                @${escapeHtml(f.handle)} ↗
+              </a>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    // =========================================================================
+    // RENDER MEMORIES
+    // =========================================================================
+    function renderMemories() {
+      const grid = document.getElementById("memoriesGrid");
+      grid.innerHTML = MEMORIES.map((m) => {
+        const hasMedia = m.media && m.media.length > 0;
+        const first = hasMedia ? m.media[0] : null;
+        const badgeClass = m.accent === "rose"
+          ? "bg-rose-500/90 text-white"
+          : "bg-amber-400 text-black";
+
+        let previewMarkup = "";
+        if (hasMedia && first.type === "video") {
+          previewMarkup = `
+            <video src="${first.src}" class="w-full h-full object-cover" muted playsinline loop autoplay></video>
+            <div class="absolute bottom-3 right-3 bg-black/75 backdrop-blur-md text-white text-xs font-bold px-2.5 py-1 rounded-full">
+              ▶ Video • Tap
+            </div>
+          `;
+        } else if (hasMedia) {
+          previewMarkup = `
+            <img src="${first.src}" alt="${escapeHtml(m.title)}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+            <div class="absolute bottom-3 right-3 bg-black/75 backdrop-blur-md text-white text-xs font-bold px-2.5 py-1 rounded-full">
+              ${m.media.length} ${m.media.length === 1 ? "Item" : "Items"} • Tap
+            </div>
+          `;
+        } else {
+          const grad = m.accent === "rose"
+            ? "from-rose-950/40 via-zinc-900 to-zinc-950"
+            : "from-amber-950/40 via-zinc-900 to-zinc-950";
+          previewMarkup = `
+            <div class="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br ${grad}">
+              <span class="text-4xl sm:text-5xl mb-2">${m.id === "garba" ? "💃" : "🚐"}</span>
+              <p class="font-display font-bold text-base sm:text-lg text-white">${escapeHtml(m.title)}</p>
+              <p class="text-xs text-zinc-400 mt-1">Photos & clips coming soon</p>
+            </div>
+          `;
+        }
+
+        return `
+          <div 
+            onclick="openMemoryModal('${m.id}')"
+            class="group cursor-pointer bg-surface border border-white/[0.08] hover:border-white/20 rounded-[1.75rem] p-4 sm:p-5 space-y-4 transition shadow-xl"
+          >
+            <div class="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-zinc-900 border border-white/10">
+              ${previewMarkup}
+              <div class="absolute top-3 left-3 ${badgeClass} text-[11px] font-extrabold px-3 py-1 rounded-full shadow">
+                ${escapeHtml(m.badge)}
+              </div>
+            </div>
+
+            <div class="px-1 flex items-center justify-between gap-4">
+              <div>
+                <h3 class="font-display text-xl sm:text-2xl font-extrabold text-white">${escapeHtml(m.title)}</h3>
+                <p class="text-xs sm:text-sm text-zinc-400 mt-1">${escapeHtml(m.description)}</p>
+              </div>
+              <span class="shrink-0 w-9 h-9 rounded-full bg-white/[0.06] group-hover:bg-white text-zinc-300 group-hover:text-black flex items-center justify-center transition font-bold text-sm">
+                ↗
+              </span>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    // =========================================================================
+    // RENDER HALL OF FAME MODAL CONTENT
+    // =========================================================================
+    function renderHallOfFame() {
+      const container = document.getElementById("hofContent");
+      if (!HALL_OF_FAME.length) {
+        container.innerHTML = `
+          <div class="rounded-2xl border border-dashed border-white/15 bg-black/30 p-8 sm:p-12 text-center space-y-2">
+            <span class="text-4xl block">🏆</span>
+            <p class="font-display font-bold text-lg text-white">Hall of Fame is ready</p>
+            <p class="text-xs sm:text-sm text-zinc-400 max-w-md mx-auto">
+              Achievements, photos, and videos from everyone in the group will show up here.
             </p>
           </div>
-
-          <!-- Bottom Action Buttons -->
-          <div class="pt-4 mt-3 border-t border-zinc-800/80 flex items-center justify-between gap-2">
-            
-            <button 
-              onclick="openModal('${f.id}')"
-              class="text-xs font-bold text-zinc-300 hover:text-white flex items-center gap-1.5 py-2 px-3 rounded-xl bg-zinc-800/60 hover:bg-zinc-800 transition active:scale-95"
-            >
-              <span>Dossier & Awards 🏆</span>
-            </button>
-
-            <a 
-              href="https://instagram.com/${f.handle}" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="text-xs font-bold text-white bg-gradient-to-r from-rose-500 to-pink-600 hover:opacity-90 px-3.5 py-2 rounded-xl transition active:scale-95 shadow"
-            >
-              @${f.handle} ↗
-            </a>
-
-          </div>
         `;
+        return;
+      }
 
-        grid.appendChild(card);
+      container.innerHTML = `
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          ${HALL_OF_FAME.map((item) => `
+            <div class="bg-black/35 border border-white/[0.08] rounded-2xl p-4 space-y-3">
+              ${item.mediaSrc ? (
+                item.mediaType === "video"
+                  ? `<div class="rounded-xl overflow-hidden bg-black border border-white/10"><video src="${item.mediaSrc}" controls playsinline class="w-full max-h-64 object-cover"></video></div>`
+                  : `<div class="rounded-xl overflow-hidden bg-black border border-white/10"><img src="${item.mediaSrc}" alt="${escapeHtml(item.title)}" class="w-full max-h-64 object-cover" /></div>`
+              ) : ""}
+              <div>
+                ${item.person ? `<span class="text-[11px] font-bold text-amber-300 bg-amber-400/10 border border-amber-400/20 px-2.5 py-0.5 rounded-full">${escapeHtml(item.person)}</span>` : ""}
+                <h4 class="font-display text-lg font-bold text-white mt-2">${escapeHtml(item.title)}</h4>
+                ${item.description ? `<p class="text-xs sm:text-sm text-zinc-400 mt-1 leading-relaxed">${escapeHtml(item.description)}</p>` : ""}
+              </div>
+            </div>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // MODAL HANDLERS
+    // =========================================================================
+    let currentFriendId = null;
+
+    function showSheet(backdropId, boxId) {
+      const modal = document.getElementById(backdropId);
+      const box = document.getElementById(boxId);
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+      requestAnimationFrame(() => {
+        box.classList.remove("sheet-hidden");
+        box.classList.add("sheet-visible");
       });
     }
 
-    // Render Achievements
-    function renderAchievements() {
-      const container = document.getElementById('achievementsGrid');
-      container.innerHTML = '';
-
-      achievements.forEach((ach) => {
-        const item = document.createElement('div');
-        item.className = "bg-zinc-900/60 border border-zinc-800/80 hover:border-zinc-700 rounded-2xl p-4 transition space-y-1.5";
-        
-        item.innerHTML = `
-          <div class="flex items-center justify-between gap-2">
-            <span class="text-[10px] font-bold text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded-full border border-amber-400/20">
-              ${ach.badge}
-            </span>
-            <span class="text-[11px] font-bold text-zinc-400">${ach.person}</span>
-          </div>
-          <h4 class="text-sm font-bold text-white">${ach.title}</h4>
-          <p class="text-xs text-zinc-400 leading-relaxed">${ach.desc}</p>
-        `;
-
-        container.appendChild(item);
-      });
+    function hideSheet(backdropId, boxId) {
+      const modal = document.getElementById(backdropId);
+      const box = document.getElementById(boxId);
+      box.classList.remove("sheet-visible");
+      box.classList.add("sheet-hidden");
+      setTimeout(() => {
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+      }, 200);
     }
 
-    // ==============================================
-    // MODAL / STORY POPUP LOGIC
-    // ==============================================
-    let currentModalId = null;
+    function openStoryModal(id) {
+      currentFriendId = id;
+      const f = FRIENDS.find(x => x.id === id);
+      if (!f) return;
 
-    function openModal(id) {
-      currentModalId = id;
-      const f = friends.find(x => x.id === id);
-      const isClass8 = f.classGrade === 8;
-      const modal = document.getElementById('storyModal');
-      const box = document.getElementById('modalBox');
-      const content = document.getElementById('modalContent');
+      const initials = escapeHtml(f.name.slice(0, 2).toUpperCase());
 
-      // Achievement pills for modal
-      const achHtml = f.achievements.map(a => `
-        <span class="inline-block bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs px-2.5 py-1 rounded-lg font-semibold mr-1.5 mb-1.5">
-          ${a}
-        </span>
-      `).join('');
-
-      content.innerHTML = `
-        <!-- Story Top: Photo + Class Badge -->
-        <div class="flex items-center gap-4 border-b border-zinc-800 pb-4">
-          <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden bg-zinc-800 flex-shrink-0 ring-2 ${isClass8 ? 'ring-amber-500' : 'ring-rose-500'} shadow-xl">
-            <img src="${f.photo}" alt="${f.name}" class="w-full h-full object-cover" />
+      document.getElementById("storyContent").innerHTML = `
+        <div class="flex items-center gap-4 border-b border-white/[0.08] pb-5 pr-8">
+          <div class="w-20 h-24 sm:w-24 sm:h-28 rounded-2xl overflow-hidden bg-zinc-900 shrink-0 border border-white/10">
+            ${f.photo ? `
+              <img src="${f.photo}" alt="${escapeHtml(f.name)}" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.classList.replace('hidden','flex');" />
+            ` : ""}
+            <div class="${f.photo ? 'hidden' : 'flex'} w-full h-full items-center justify-center ${f.fallbackBg}">
+              <span class="font-display text-3xl font-extrabold text-white/90">${initials}</span>
+            </div>
           </div>
-          <div>
-            <span class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full ${
-              isClass8 
-                ? 'bg-amber-400/10 text-amber-400 border border-amber-400/20' 
-                : 'bg-rose-400/10 text-rose-400 border border-rose-400/20'
-            }">
-              Class ${f.classGrade} ${isClass8 ? '• Senior 👑' : '• Junior ⚡'}
-            </span>
-            <h2 class="text-2xl sm:text-3xl font-black text-white mt-1">${f.name}</h2>
-            <p class="text-xs text-amber-300 font-bold">🎒 ${f.schoolRole}</p>
+
+          <div class="min-w-0">
+            <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-white truncate">${escapeHtml(f.name)}</h2>
+            ${f.nickname ? `<p class="text-sm text-zinc-400 mt-0.5">${escapeHtml(f.nickname)}</p>` : ""}
+            <p class="text-xs text-zinc-500 mt-1">@${escapeHtml(f.handle)}</p>
           </div>
         </div>
 
-        <!-- School Life Story -->
-        <div class="space-y-2">
-          <h4 class="text-xs font-bold uppercase tracking-wider text-zinc-500">BOMIS SCHOOL DOSSIER:</h4>
-          <p class="text-xs sm:text-sm text-zinc-200 leading-relaxed bg-zinc-900/80 p-4 rounded-2xl border border-zinc-800">
-            ${f.fullStory}
-          </p>
+        <div class="bg-black/35 p-4 sm:p-5 rounded-2xl border border-white/[0.06]">
+          ${f.about
+            ? `<p class="text-sm sm:text-base text-zinc-200 leading-relaxed whitespace-pre-line">${escapeHtml(f.about)}</p>`
+            : `<p class="text-sm text-zinc-500">Details coming soon.</p>`
+          }
         </div>
 
-        <!-- Achievements Tag -->
-        <div class="space-y-1.5">
-          <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400">PERSONAL ACHIEVEMENTS & BADGES:</h4>
-          <div>${achHtml}</div>
-        </div>
-
-        <!-- Signature Dialogue -->
-        <div class="p-3.5 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-xs sm:text-sm text-rose-300">
-          <span class="font-bold text-rose-400">🗣️ Famous Line:</span> "${f.dialogue}"
-        </div>
-
-        <!-- School Kalesh / Memory -->
-        <div class="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-xs sm:text-sm text-amber-200">
-          <span class="font-bold text-amber-400">🤫 Classroom Incident:</span> ${f.kalesh}
-        </div>
-
-        <!-- Bottom Action CTA -->
-        <div class="pt-2 flex items-center justify-between gap-3">
-          <button onclick="cycleFriend(-1)" class="px-3 sm:px-4 py-2.5 rounded-xl bg-zinc-800 text-xs font-bold text-zinc-300 hover:text-white">
+        <div class="pt-2 flex items-center justify-between gap-2.5">
+          <button onclick="cycleFriend(-1)" class="px-4 py-3 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] text-xs font-bold text-zinc-200 transition">
             ← Prev
           </button>
-
           <a 
-            href="https://instagram.com/${f.handle}" 
+            href="https://instagram.com/${encodeURIComponent(f.handle)}" 
             target="_blank" 
             rel="noopener noreferrer"
-            class="flex-1 py-3 text-center bg-gradient-to-r from-rose-500 to-pink-600 text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg active:scale-95"
+            class="flex-1 py-3 text-center bg-gradient-to-r from-rose-500 to-pink-600 hover:brightness-110 text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg transition active:scale-95"
           >
-            Visit @${f.handle} On IG ↗
+            Open @${escapeHtml(f.handle)} ↗
           </a>
-
-          <button onclick="cycleFriend(1)" class="px-3 sm:px-4 py-2.5 rounded-xl bg-zinc-800 text-xs font-bold text-zinc-300 hover:text-white">
+          <button onclick="cycleFriend(1)" class="px-4 py-3 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] text-xs font-bold text-zinc-200 transition">
             Next →
           </button>
         </div>
       `;
 
-      modal.classList.remove('hidden');
-      setTimeout(() => {
-        box.classList.remove('modal-enter');
-        box.classList.add('modal-enter-active');
-      }, 10);
+      showSheet("storyModal", "storyBox");
     }
 
-    function closeModal() {
-      const modal = document.getElementById('storyModal');
-      const box = document.getElementById('modalBox');
-      box.classList.remove('modal-enter-active');
-      box.classList.add('modal-enter');
-      setTimeout(() => {
-        modal.classList.add('hidden');
-      }, 200);
+    function closeStoryModal() {
+      currentFriendId = null;
+      hideSheet("storyModal", "storyBox");
     }
 
-    function cycleFriend(direction) {
-      const currentIndex = friends.findIndex(x => x.id === currentModalId);
-      let nextIndex = currentIndex + direction;
-      if (nextIndex < 0) nextIndex = friends.length - 1;
-      if (nextIndex >= friends.length) nextIndex = 0;
-      openModal(friends[nextIndex].id);
+    function cycleFriend(dir) {
+      const idx = FRIENDS.findIndex(x => x.id === currentFriendId);
+      if (idx === -1) return;
+      const next = (idx + dir + FRIENDS.length) % FRIENDS.length;
+      openStoryModal(FRIENDS[next].id);
     }
 
-    // Close on background click
-    document.getElementById('storyModal').addEventListener('click', function(e) {
-      if (e.target === this) closeModal();
+    function openMemoryModal(id) {
+      const m = MEMORIES.find(x => x.id === id);
+      if (!m) return;
+
+      const mediaItems = m.media && m.media.length
+        ? m.media.map(item => item.type === "video"
+            ? `<div class="rounded-2xl overflow-hidden bg-black border border-white/10"><video src="${item.src}" controls playsinline class="w-full max-h-[65vh] mx-auto"></video></div>`
+            : `<div class="rounded-2xl overflow-hidden bg-black border border-white/10"><img src="${item.src}" alt="${escapeHtml(item.label || m.title)}" class="w-full max-h-[65vh] object-contain mx-auto" /></div>`
+          ).join("")
+        : `
+          <div class="rounded-2xl border border-dashed border-white/15 bg-black/40 p-10 text-center space-y-2">
+            <span class="text-5xl block">${m.id === "garba" ? "💃" : "🚐"}</span>
+            <p class="font-display font-bold text-lg text-white">${escapeHtml(m.title)} — Photos coming soon</p>
+            <p class="text-xs sm:text-sm text-zinc-400 max-w-md mx-auto">
+              Photos and videos from this memory will be added here soon.
+            </p>
+          </div>
+        `;
+
+      document.getElementById("memoryContent").innerHTML = `
+        <div class="pr-10">
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">${escapeHtml(m.badge)}</span>
+          <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-white mt-0.5">${escapeHtml(m.title)}</h3>
+          <p class="text-xs sm:text-sm text-zinc-400 mt-1">${escapeHtml(m.description)}</p>
+        </div>
+        <div class="space-y-4">
+          ${mediaItems}
+        </div>
+      `;
+
+      showSheet("memoryModal", "memoryBox");
+    }
+
+    function closeMemoryModal() {
+      document.querySelectorAll("#memoryContent video").forEach(v => v.pause());
+      hideSheet("memoryModal", "memoryBox");
+    }
+
+    function openHallOfFame() {
+      renderHallOfFame();
+      showSheet("hofModal", "hofBox");
+    }
+
+    function closeHallOfFame() {
+      document.querySelectorAll("#hofContent video").forEach(v => v.pause());
+      hideSheet("hofModal", "hofBox");
+    }
+
+    async function shareSite() {
+      const label = document.getElementById("shareLabel");
+      const url = window.location.href;
+      if (navigator.share) {
+        try {
+          await navigator.share({ title: SQUAD_CONFIG.name, url });
+          return;
+        } catch {}
+      }
+      try {
+        await navigator.clipboard.writeText(url);
+        label.textContent = "Copied!";
+        setTimeout(() => { label.textContent = "Share"; }, 1800);
+      } catch {}
+    }
+
+    // Backdrop & Escape handling
+    document.getElementById("storyModal").addEventListener("click", (e) => {
+      if (e.target.id === "storyModal") closeStoryModal();
+    });
+    document.getElementById("memoryModal").addEventListener("click", (e) => {
+      if (e.target.id === "memoryModal") closeMemoryModal();
+    });
+    document.getElementById("hofModal").addEventListener("click", (e) => {
+      if (e.target.id === "hofModal") closeHallOfFame();
     });
 
-    // Initial Renders
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeStoryModal();
+        closeMemoryModal();
+        closeHallOfFame();
+      } else if (currentFriendId && e.key === "ArrowRight") {
+        cycleFriend(1);
+      } else if (currentFriendId && e.key === "ArrowLeft") {
+        cycleFriend(-1);
+      }
+    });
+
+    // Init
     renderFriends();
-    renderAchievements();
+    renderMemories();
   </script>
 </body>
 </html>
